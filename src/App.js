@@ -1,23 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Loging from './Component/Loging'
+import Registration from './Component/Registration'
+
+import Table from './Component/Table'
+import Update from './Component/Update'
+import AddUser from './Component/AddUser'
+import Forgate from './Component/Forgate'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <Sd/> */}
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Loging}/>
+          <Route  exact path='/reg' component={Registration}/>
+      
+          <Route exact path='/forgate' component={Forgate}/>
+          <Route exact path='/add' component={AddUser}/>
+          <Route exact path='/table' component={Table}/>
+          <Route exact path='/:id' component={Update}/>
+        </Switch>
+      </Router>
+     
     </div>
   );
 }
